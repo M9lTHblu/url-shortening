@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {motion, AnimatePresence} from 'framer-motion';
-import {List} from './List';
+import {Links} from './Links';
 import {Login} from './Login';
 
 export const Modal = ({isOpen}) => {
@@ -13,7 +13,7 @@ export const Modal = ({isOpen}) => {
                 animate={{opacity: 1}}
                 exit={{opacity: 0}}
             >
-              <List />
+              <Links />
               <Login />
             </Container>)}
       </AnimatePresence>
@@ -31,5 +31,9 @@ const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  
+  button {
+    color: white;
+  }
 `;
 
