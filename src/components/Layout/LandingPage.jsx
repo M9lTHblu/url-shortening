@@ -1,3 +1,4 @@
+import {BoostLinks} from '../BoostLinks/BoostLinks';
 import {Features} from '../Features/Features';
 import {Header} from '../Header/Header';
 import {Hero} from '../Hero/Hero';
@@ -12,11 +13,8 @@ export const LandingPage = () => {
           <Hero />
           <ShortenLink />
           <Features />
-          <section>
-            {/*TODO add content to boost links*/}
-          </section>
+          <BoostLinks/>
         </main>
-
         <footer>
           footer
           {/*TODO add content to footer*/}
