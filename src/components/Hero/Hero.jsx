@@ -1,73 +1,86 @@
-import styled from 'styled-components';
-import heroImg from '../../assets/images/illustration-working.svg';
+import styled from 'styled-components/macro';
+import image from '../../assets/images/illustration-working.svg';
 import {Button} from '../Button/Button';
-import {Wrapper} from '../shared/Wrapper';
+
 
 export const Hero = () => {
   return (
-      <section>
-        <Container>
-          <img src={heroImg} alt="illustration working" />
-          <div>
-            <h1>More than just shorter links</h1>
-            <p>
-              Build your brand’s recognition and get detailed insights
-              on how your links are performing.
-            </p>
-            <Button text="Get Started" />
-          </div>
-        </Container>
-      </section>
+      <Section>
+        <ImgContainer>
+          <img src={image} alt="hero" />
+        </ImgContainer>
+        <TextContent>
+          <h1>More than just shorter links</h1>
+          <p>
+            Build your brand’s recognition and get detailed insights
+            on how your links are performing.
+          </p>
+          <Button size='md' text="Get Started" />
+        </TextContent>
+      </Section>
   );
 };
 
-const Container = styled(Wrapper)`
-  margin-top: .8rem;
-  text-align: center;
-
-
-  img {
-    width: 510px;
+const Section = styled.section.attrs({
+  className: 'wrapper'
+})`
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+  @media (min-width: 767px) {
+    flex-direction: row-reverse;
   }
+`;
 
+const ImgContainer = styled.div`
+  width: 100%;
+  @media (min-width: 767px) {
+    position: relative;
+    width: 50%;
+  }
+  
+  img {
+    width: 150%;
+    @media (min-width: 767px) {
+      position: relative;
+      right: -100px;
+      width: 135%;
+    }
+  }
+`;
+
+const TextContent = styled.article`
+  text-align: center;
+  
   h1 {
-    font-size: 2.5rem;
+    margin-bottom: .8rem;
+    font-size: 2.3rem;
     line-height: 1.2;
-    margin: 2rem 0 .5rem;
   }
 
   p {
-    color: var(--gray);
     margin-bottom: 2rem;
+    color: var(--gray);
   }
 
   button {
     width: 50%;
     margin: 0 auto;
   }
-
-  @media (min-width: 767px) {
-    position: relative;
-    display: flex;
-    text-align: start;
-    margin-top: 5rem;
+  
+  @media (min-width: 767px){
     
-    button {
-      margin: 0;
-      width: 35%;
-    }
+    width: 40%;
+    text-align: left;
+    
     h1 {
-      font-size: 3.8rem;
-    }
-    img {
-      position: absolute;
-      right: -300px;
-      width: initial;
+      font-size: 3.5rem;
     }
     
-    div {
-     order: -1;
-      width: 40%;
+    p{
+      font-size: var(--size);
     }
   }
 `;

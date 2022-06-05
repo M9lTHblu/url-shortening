@@ -20,18 +20,22 @@ export const Modal = ({isOpen}) => {
   );
 };
 
-const Container = styled(motion.div)`
+const Container = styled(motion.div).attrs({
+  id: 'modal'
+})`
   position: absolute;
-  top: 5rem;
+  left: 1rem;
+  right: 1rem;
+  top: 0;
   width: calc(100% - 2rem);
   padding: 2rem 1.5rem;
-  border-radius: var(--radius);
+  border-radius: var(--square-radius);
   color: white;
   background-color: var(--violet);
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  
+
   button {
     color: white;
   }

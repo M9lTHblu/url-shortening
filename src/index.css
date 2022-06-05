@@ -27,7 +27,8 @@ html {
   --size: 1.125rem;
 
 /*  other  */
-  --radius: .5rem;
+  --square-radius: .25rem;
+  --pill-radius: 1.5rem;
 
 }
 
@@ -40,10 +41,20 @@ body {
   overflow: hidden;
 }
 
+.wrapper {
+  max-width: 1110px;
+  margin: 0 auto;
+}
 
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 0 1rem;
+  }
+}
 
 /*
 - [Font Awesome](https://fontawesome.com)
 - [IcoMoon](https://icomoon.io)
 - [Ionicons](https://ionicons.com)
 */
+

@@ -1,5 +1,6 @@
 import {Header} from '../Header/Header';
 import {Hero} from '../Hero/Hero';
+import {ShortenLink} from '../ShortneLink/ShortenLink';
 
 
 export const LandingPage = () => {
@@ -10,9 +11,9 @@ export const LandingPage = () => {
         <Header/>
         <main>
           <Hero/>
-          <section>
+          <ShortenLink>
           {/*TODO add content to shorten link*/}
-          </section>
+          </ShortenLink>
           <section>
             {/*TODO add content to advanced statistics*/}
           </section>

@@ -4,8 +4,8 @@ import {Button} from '../Button/Button';
 export const Login = () => {
   return (
       <Container>
-        <Button type="link" text='Login' />
-        <Button text='Sign Up'/>
+        <Button size='md' type="link" text='Login' />
+        <Button sixe='md' text='Sign Up'/>
       </Container>
   )
 }
