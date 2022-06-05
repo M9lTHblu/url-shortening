@@ -7,7 +7,7 @@ export const Form = () => {
   return (
       <Container>
         <Input type="url" />
-        <Button size='lg' variant="square" text="Shorten It!" />
+        <Button size='md' variant="square" text="Shorten It!" />
       </Container>
   );
 };
@@ -26,6 +26,7 @@ const Container = styled.form`
   @media (min-width: 767px) {
     padding: 3rem;
     background-image: url(${bgd});
+    background-position: left;
     background-repeat: no-repeat;
     
     display: flex;

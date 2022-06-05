@@ -1,30 +1,27 @@
+import {Features} from '../Features/Features';
 import {Header} from '../Header/Header';
 import {Hero} from '../Hero/Hero';
 import {ShortenLink} from '../ShortneLink/ShortenLink';
 
-
 export const LandingPage = () => {
 
-
   return (
-      <>
-        <Header/>
+      <div>
+        <Header />
         <main>
-          <Hero/>
-          <ShortenLink>
-          {/*TODO add content to shorten link*/}
-          </ShortenLink>
+          <Hero />
+          <ShortenLink />
+          <Features />
           <section>
-            {/*TODO add content to advanced statistics*/}
-          </section>
-          <section>
-           {/*TODO add content to boost links*/}
+            {/*TODO add content to boost links*/}
           </section>
         </main>
+
         <footer>
-         {/*TODO add content to footer*/}
+          footer
+          {/*TODO add content to footer*/}
         </footer>
-      </>
+      </div>
   );
 };
 

@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
-html {
-  height: 100%;
-  font-size: 16px;
-}
+
 
 * {
   margin: 0;
@@ -10,11 +7,14 @@ html {
   box-sizing: border-box;
 }
 
+
+
 :root {
 /*  colors  */
   --cyan: hsl(180, 66%, 49%);
   --violet: hsl(257, 27%, 26%);
   --red: hsl(0, 87%, 67%);
+  --ligth-violet: #F0F1F6;
   --light-gray: hsl(0, 0%, 75%);
   --gray: hsl(257, 7%, 63%);
   --dark-blue: hsl(255, 11%, 22%);
@@ -32,14 +32,21 @@ html {
 
 }
 
+h1, h2, h3 {
+  color: var(--dark);
+}
+
 body {
-  height: 100%;
   font-family: var(--family);
   font-weight: var(--weight-normal);
   font-size: var(--size);
   line-height: 1.5;
+}
+
+#root {
   overflow: hidden;
 }
+
 
 .wrapper {
   max-width: 1110px;

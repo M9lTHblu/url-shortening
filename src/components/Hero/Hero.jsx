@@ -24,7 +24,7 @@ export const Hero = () => {
 const Section = styled.section.attrs({
   className: 'wrapper'
 })`
-  overflow: hidden;
+  margin-bottom: 6rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;

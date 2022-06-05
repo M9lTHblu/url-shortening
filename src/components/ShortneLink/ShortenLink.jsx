@@ -13,7 +13,6 @@ export const ShortenLink = () => {
 };
 
 const Section = styled.section`
-  margin: 6rem 0;
-  background: linear-gradient(white 50%, var(--light-gray) 50%);
+  background: linear-gradient(white 50%, var(--ligth-violet) 50%);
   
 `
