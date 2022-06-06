@@ -1,9 +1,37 @@
-export const Links = () => {
+import styled from 'styled-components/macro';
+
+
+export const Links = ({links}) => {
   return (
-      <ul className='links'>
-        <li><a href="/features">Features</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/resource">Resources</a></li>
-      </ul>
+      <List>
+        {links?.map((link, i) =>
+            <li key={link + i}><Link href={link}>{link}</Link></li>
+        )}
+      </List>
   );
 };
+
+const List = styled.ul`
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  
+  @media (min-width: 767px) {
+    flex-direction: row;
+  }
+`;
+
+export const Link = styled.a`
+  text-decoration: none;
+  color: white;
+
+  :hover {
+    color: black;
+  }
+
+  @media (min-width: 767px) {
+    color: var(--gray);
+  }
+`;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {motion, AnimatePresence} from 'framer-motion';
+import links from './data'
 import {Links} from './Links';
 import {Login} from './Login';
 
@@ -13,7 +14,7 @@ export const Modal = ({isOpen}) => {
                 animate={{opacity: 1}}
                 exit={{opacity: 0}}
             >
-              <Links />
+              <Links links={links}/>
               <Login />
             </Container>)}
       </AnimatePresence>

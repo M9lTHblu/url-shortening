@@ -1,8 +1,10 @@
+import {useState} from 'react';
 import styled from 'styled-components/macro';
 import useMatchMedia from '../../hooks/useMatchMedia';
 import {ReactComponent as Logo} from '../../assets/images/logo.svg';
 import {DesktopNav} from './DesktopNav';
 import {MobileNav} from './MobileNav';
+
 
 
 export const Header = () => {
@@ -11,7 +13,7 @@ export const Header = () => {
   return (
       <Container>
        <Logo/>
-        {isMobile ? <MobileNav/> : <DesktopNav/>}
+        {isMobile ? <MobileNav /> : <DesktopNav />}
       </Container>
   );
 };

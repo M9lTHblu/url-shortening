@@ -1,15 +1,17 @@
 import {useEffect, useState} from 'react';
 import {Spin as Hamburger} from 'hamburger-react';
-import {Links} from './Links';
 import {Modal} from './Modal';
 import {Nav} from './Nav';
 
-export const MobileNav = ({isMobile}) => {
+
+
+export const MobileNav = () => {
   const [isOpen, setOpen] = useState(false);
 
-  useEffect(() => {
-    if (!isMobile) setOpen(false);
-  }, [isMobile]);
+  // useEffect(() => {
+  //   setOpen(false);
+  // }, []);
+//TODO check useEffect switcher
 
   return (
       <Nav>
@@ -21,9 +23,7 @@ export const MobileNav = ({isMobile}) => {
             label="Show menu"
             hideOutline={false}
         />
-        <Modal isOpen={isOpen}>
-          <Links />
-        </Modal>
+        <Modal isOpen={isOpen} />
       </Nav>
   )
 }

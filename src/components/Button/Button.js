@@ -1,5 +1,4 @@
-import styled, {css} from 'styled-components/macro';
-
+import styled, {css} from 'styled-components';
 
 export const Button = styled.input.attrs(({text}) => ({
   type: 'button',
@@ -14,7 +13,7 @@ export const Button = styled.input.attrs(({text}) => ({
   white-space: nowrap;
   cursor: pointer;
   text-align: center;
-  
+
   :hover {
     background-color: hsl(180, 74%, 64%);
   }
@@ -29,32 +28,31 @@ export const Button = styled.input.attrs(({text}) => ({
         return sm;
     }
   }};
-  
-  ${({type}) => type === 'link' ? link: ''}
+
+  ${({$style}) => $style === 'link' ? link : ''}
   ${({variant}) => variant === 'square' ? square : pill};
 `;
-
 
 // sizes
 
 const sm = css`
   padding: 0 1.5rem;
   line-height: 2.5;
-`
+`;
 const md = css`
   padding: 0 2.5rem;
   line-height: 2.75;
-`
-const lg = css` 
+`;
+const lg = css`
   padding: 0 2.5rem;
   line-height: 3.5;
-`
+`;
 
 // variants
 
 const pill = css`
   border-radius: var(--pill-radius);
-`
+`;
 const square = css`
   border-radius: var(--square-radius);
 `;

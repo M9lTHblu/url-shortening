@@ -53,7 +53,7 @@ export const Features = () => {
 }
 
 const Section = styled.section`
-  padding-top: 6rem;
+  padding: 6rem 0 5rem;
   color: var(--gray);
   background-color: #F0F1F6;
 `

@@ -16,7 +16,6 @@ const Section = styled.section`
   background-color: var(--violet);
   background-image: url(${bgm});
   background-repeat: no-repeat;
-  //background-position: top -10px right 0;
   background-size: cover;
   text-align: center;
   
