@@ -13,6 +13,7 @@ export const Nav = styled.nav`
   @media (min-width: 767px) {
     padding-left: 2.5rem;
     ul {
+      font-size: 1rem;
       flex-grow: 1;
     }
   }

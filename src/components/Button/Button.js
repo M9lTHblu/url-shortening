@@ -7,7 +7,7 @@ export const Button = styled.input.attrs(({text}) => ({
   border: none;
   font-family: var(--family);
   font-size: var(--size);
-  font-weight: var(--weight-bold);
+  
   color: white;
   background-color: var(--cyan);
   white-space: nowrap;
@@ -36,22 +36,25 @@ export const Button = styled.input.attrs(({text}) => ({
 // sizes
 
 const sm = css`
-  padding: 0 1.5rem;
-  line-height: 2.5;
+  padding: 0 1rem;
+  font-size: 1rem;
+  line-height: 2;
 `;
 const md = css`
   padding: 0 2.5rem;
+  font-weight: var(--weight-bold);
   line-height: 2.75;
 `;
 const lg = css`
   padding: 0 2.5rem;
+  font-weight: var(--weight-bold);
   line-height: 3.5;
 `;
 
 // variants
 
 const pill = css`
-  border-radius: var(--pill-radius);
+  border-radius: var(--pill-radius);    
 `;
 const square = css`
   border-radius: var(--square-radius);

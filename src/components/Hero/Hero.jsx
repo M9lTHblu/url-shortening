@@ -31,6 +31,8 @@ const Section = styled.section.attrs({
   
   @media (min-width: 767px) {
     flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
   }
 `;
 
@@ -45,8 +47,7 @@ const ImgContainer = styled.div`
     width: 150%;
     @media (min-width: 767px) {
       position: relative;
-      right: -100px;
-      width: 135%;
+      right: -1rem;
     }
   }
 `;
@@ -72,11 +73,11 @@ const TextContent = styled.article`
   
   @media (min-width: 767px){
     
-    width: 40%;
+    width: 60%;
     text-align: left;
     
     h1 {
-      font-size: 3.5rem;
+      font-size: 3.8rem;
     }
     
     p{

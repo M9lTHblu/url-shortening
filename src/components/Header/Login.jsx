@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import {Button} from '../Button/Button';
 
-export const Login = () => {
+export const Login = ({btnSize = ''}) => {
   return (
       <Container>
-        <Button size="md" $style="link" text="Login" />
-        <Button sixe="md" text="Sign Up" />
+        <Button  $style="link" text="Login" />
+        <Button size={btnSize} text="Sign Up" />
       </Container>
   );
 };

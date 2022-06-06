@@ -15,7 +15,7 @@ export const Modal = ({isOpen}) => {
                 exit={{opacity: 0}}
             >
               <Links links={links}/>
-              <Login />
+              <Login btnSize='md'/>
             </Container>)}
       </AnimatePresence>
   );

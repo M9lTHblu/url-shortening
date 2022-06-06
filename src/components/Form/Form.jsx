@@ -24,9 +24,10 @@ const Container = styled.form`
   gap: 1rem;
 
   @media (min-width: 767px) {
-    padding: 3rem;
+    padding: 2.5rem;
     background-image: url(${bgd});
     background-position: left;
+    background-size: cover;
     background-repeat: no-repeat;
     
     display: flex;

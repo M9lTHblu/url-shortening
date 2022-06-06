@@ -1,53 +1,25 @@
 import styled from 'styled-components/macro';
+import data from './footerData'
 import {ReactComponent as Logo} from '../../assets/images/logo.svg';
-import {Link as StyledLink} from '../Header/Links';
-import {
-  ReactComponent as Facebook,
-} from '../../assets/images/icon-facebook.svg';
+import {ReactComponent as Facebook} from '../../assets/images/icon-facebook.svg';
 import {ReactComponent as Twitter} from '../../assets/images/icon-twitter.svg';
-import {
-  ReactComponent as Pinterest,
-} from '../../assets/images/icon-pinterest.svg';
-import {
-  ReactComponent as Instagram,
-} from '../../assets/images/icon-instagram.svg';
+import {ReactComponent as Pinterest} from '../../assets/images/icon-pinterest.svg';
+import {ReactComponent as Instagram} from '../../assets/images/icon-instagram.svg';
+import {LinksGroup} from './LinksGroup';
 
-const data = [
-  {
-    title: 'Features', links: [
-      'Link Shortening',
-      'Branded Links',
-      'Analytics',
-    ],
-  },
-  {
-    title: 'Resources', links: [
-      'Blog',
-      'Developers',
-      'Support',
-    ],
-  },
-  {
-    title: 'Company', links: [
-      'About',
-      'Our Team',
-      'Careers',
-      'Contact',
-    ],
-  },
-];
+
 export const Footer = () => {
   return (
       <footer style={{backgroundColor: 'var(--dark-blue)'}}>
         <Container>
-          <WhiteLogo>
+          <LogoContainer>
             <Logo />
-          </WhiteLogo>
-          <ul>
+          </LogoContainer>
+          <GroupsContainer>
             {data.map((item, i) => (
-                <LinksGroup key={i} obj={item} />
+                <LinksGroup key={i} {...item} />
             ))}
-          </ul>
+          </GroupsContainer>
           <IconsContainer>
             <Facebook />
             <Twitter />
@@ -59,49 +31,43 @@ export const Footer = () => {
   );
 };
 
-const LinksGroup = ({obj}) => {
-  return (
-      <>
-        <Title>{obj.title}</Title>
-        <ul style={{listStyle: 'none', padding: '.7rem 0 2rem'}}>
-          {obj.links.map((link, i) => (
-              <li key={i} style={{marginBottom: '.3rem'}}>
-                <Link href={'/' + link}>
-                  {link}
-                </Link>
-              </li>
-          ))}
-        </ul>
-      </>
-  );
-};
-
 const Container = styled.div.attrs({
   className: 'wrapper',
 })`
+  padding: 2.5rem 0;
   text-align: center;
+
+  @media (min-width: 767px) {
+    padding-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 `;
 
-const WhiteLogo = styled.div`
-  padding: 2.5rem 0;
+const GroupsContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  
+  @media (min-width: 767px) {
+    margin-left: 9rem;
+    flex-direction: row;
+    gap: 5rem;
+  }
+`;
+
+const LogoContainer = styled.div`
 
   svg {
     path {
       fill: white;
     }
-
     cursor: pointer;
   }
 
-`;
-
-const Title = styled.h4`
-  color: white;
-`;
-
-const Link = styled(StyledLink)`
-  font-size: 1rem;
-  color: var(--gray);
+  @media (min-width: 767px) {
+    padding: 0;
+  }
 `;
 
 const IconsContainer = styled.div`
@@ -110,9 +76,13 @@ const IconsContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  
+
   svg {
     cursor: pointer;
+  }
+
+  @media (min-width: 767px) {
+    padding: 0;
   }
 `;
 
