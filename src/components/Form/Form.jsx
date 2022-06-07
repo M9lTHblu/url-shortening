@@ -1,21 +1,36 @@
+import {useEffect} from 'react';
 import {useForm} from 'react-hook-form';
+import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components/macro';
-import {Button} from '../Button/Button';
 import bgd from '../../assets/images/bg-shorten-desktop.svg';
 import bgm from '../../assets/images/bg-shorten-mobile.svg';
+import {addLink, fetchLinks, getState} from '../../redux/slices/linksSclice';
+import {Button} from '../Button/Button';
 
 const rgx = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
 
 export const Form = () => {
-  const {register, handleSubmit, formState: {errors}} = useForm();
+  const {register, handleSubmit, resetField, formState: {errors}} = useForm();
+  const dispatch = useDispatch();
+  const {shortLink} = useSelector(getState)
 
   const onSubmit = (data) => {
-
+    dispatch(fetchLinks(data.url));
+    resetField('url')
   };
-
+  useEffect(() => {
+    if (shortLink.ok) {
+      const {
+        code: id,
+        original_link: origin,
+        short_link2: short
+      } = shortLink.result;
+      dispatch(addLink({id, origin, short}))
+    }
+  }, [shortLink])
+console.log(shortLink)
   return (
       <Container onSubmit={handleSubmit(onSubmit)}>
-
         <Input
             type="url"
             error={errors}

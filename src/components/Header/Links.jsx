@@ -1,11 +1,10 @@
 import styled from 'styled-components/macro';
 
-
 export const Links = ({links}) => {
   return (
       <List>
         {links?.map((link, i) =>
-            <li key={link + i}><Link href={link}>{link}</Link></li>
+            <li key={link + i}><ShortenedLink href={link}>{link}</ShortenedLink></li>
         )}
       </List>
   );
@@ -23,7 +22,7 @@ const List = styled.ul`
   }
 `;
 
-export const Link = styled.a`
+export const ShortenedLink = styled.a`
   text-decoration: none;
   color: white;
 

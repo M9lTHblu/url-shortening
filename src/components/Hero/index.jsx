@@ -1,6 +1,9 @@
 import styled from 'styled-components/macro';
 import image from '../../assets/images/illustration-working.svg';
+import {media} from '../../globalStyles';
 import {Button} from '../Button/Button';
+import {Description} from './Description';
+import {Title} from './Title';
 
 
 export const Hero = () => {
@@ -10,16 +13,17 @@ export const Hero = () => {
           <img src={image} alt="hero" />
         </ImgContainer>
         <TextContent>
-          <h1>More than just shorter links</h1>
-          <p>
+          <Title>More than just shorter links</Title>
+          <Description>
             Build your brand’s recognition and get detailed insights
             on how your links are performing.
-          </p>
+          </Description>
           <Button size='md' text="Get Started" />
         </TextContent>
       </Section>
   );
 };
+
 
 const Section = styled.section.attrs({
   className: 'wrapper'
@@ -28,12 +32,14 @@ const Section = styled.section.attrs({
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  
-  @media (min-width: 767px) {
+
+  ${media.tablet`
     flex-direction: row-reverse;
     justify-content: space-between;
-    align-items: center;
-  }
+    gap: 1rem;
+  `}
+
+  
 `;
 
 const ImgContainer = styled.div`
@@ -47,41 +53,32 @@ const ImgContainer = styled.div`
     width: 150%;
     @media (min-width: 767px) {
       position: relative;
-      right: -1rem;
+      right: -2rem;
     }
   }
 `;
 
+
+
 const TextContent = styled.article`
   text-align: center;
   
-  h1 {
-    margin-bottom: .8rem;
-    font-size: 2.3rem;
-    line-height: 1.2;
-  }
-
-  p {
-    margin-bottom: 2rem;
-    color: var(--gray);
-  }
-
   button {
     width: 50%;
     margin: 0 auto;
   }
   
-  @media (min-width: 767px){
-    
-    width: 60%;
+  ${media.tablet`
+    // align-self: flex-start;
+    padding-top: 3.5rem;
+    width: 50%;
     text-align: left;
-    
-    h1 {
-      font-size: 3.8rem;
-    }
-    
-    p{
-      font-size: var(--size);
-    }
-  }
+  `}
+
+  ${media.laptopL`
+
+    padding-top: 5rem;
+    width: 45%;
+    text-align: left;
+  `}
 `;

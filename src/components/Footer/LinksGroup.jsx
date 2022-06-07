@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import {Link as StyledLink} from '../Header/Links';
+import {ShortenedLink as StyledLink} from '../Header/Links';
 
 export const LinksGroup = ({title, links}) => {
   return (
@@ -20,7 +20,9 @@ export const LinksGroup = ({title, links}) => {
 
 const LinksContainer = styled.div`
   h4 {
+    
     color: white;
+    line-height: 1;
   }
 
   @media (min-width: 767px) {

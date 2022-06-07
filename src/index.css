@@ -32,14 +32,11 @@
 
 }
 
-h1, h2, h3 {
-  color: var(--dark);
-}
-
 body {
   font-family: var(--family);
   font-weight: var(--weight-normal);
   font-size: var(--size);
+  color: var(--dark);
   line-height: 1.5;
 }
 
@@ -52,6 +49,7 @@ body {
   max-width: 1110px;
   margin: 0 auto;
 }
+
 
 @media (max-width: 1110px) {
   .wrapper {

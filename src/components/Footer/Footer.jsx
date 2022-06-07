@@ -34,7 +34,8 @@ export const Footer = () => {
 const Container = styled.div.attrs({
   className: 'wrapper',
 })`
-  padding: 2.5rem 0;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
   text-align: center;
 
   @media (min-width: 767px) {
@@ -48,40 +49,43 @@ const Container = styled.div.attrs({
 const GroupsContainer = styled.ul`
   display: flex;
   flex-direction: column;
+  flex-basis: 42%;
   
   @media (min-width: 767px) {
-    margin-left: 9rem;
     flex-direction: row;
-    gap: 5rem;
+    justify-content: space-between;
+    //gap: 2rem;
   }
 `;
 
 const LogoContainer = styled.div`
-
+  margin-bottom: 3rem;
+  text-align: center;
+  flex-basis: 30%;
   svg {
     path {
       fill: white;
     }
     cursor: pointer;
   }
-
+  
   @media (min-width: 767px) {
-    padding: 0;
+    text-align: left;
   }
 `;
 
 const IconsContainer = styled.div`
+flex-basis: 18%;
   padding: 2rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-
+  justify-content: space-between;
+  
   svg {
     cursor: pointer;
   }
 
   @media (min-width: 767px) {
+    text-align: right;
     padding: 0;
   }
 `;

@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components';
 
 export const Button = styled.input.attrs(({text}) => ({
-  type: 'button',
+  type: 'submit',
   value: text,
 }))`
   border: none;
@@ -60,9 +60,10 @@ const square = css`
   border-radius: var(--square-radius);
 `;
 
-// types
+// styles
 
 const link = css`
+  padding: 0;
   color: var(--gray);
   background-color: transparent;
 
