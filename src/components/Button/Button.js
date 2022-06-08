@@ -1,13 +1,16 @@
 import styled, {css} from 'styled-components';
 
-export const Button = styled.input.attrs(({text}) => ({
+export const Button = styled.input.attrs(({text, disabled, onClick}) => ({
   type: 'submit',
   value: text,
+  disabled: disabled,
+  onClick: onClick,
 }))`
+  display: inline;
   border: none;
   font-family: var(--family);
   font-size: var(--size);
-  
+
   color: white;
   background-color: var(--cyan);
   white-space: nowrap;
@@ -29,6 +32,7 @@ export const Button = styled.input.attrs(({text}) => ({
     }
   }};
 
+  ${({text}) => text === 'Copied!' ? copied : ''}
   ${({$style}) => $style === 'link' ? link : ''}
   ${({variant}) => variant === 'square' ? square : pill};
 `;
@@ -36,9 +40,10 @@ export const Button = styled.input.attrs(({text}) => ({
 // sizes
 
 const sm = css`
-  padding: 0 1rem;
+  min-width: 130px;
   font-size: 1rem;
-  line-height: 2;
+  font-weight: var(--weight-bold);
+  line-height: 2.3;
 `;
 const md = css`
   padding: 0 2.5rem;
@@ -54,13 +59,21 @@ const lg = css`
 // variants
 
 const pill = css`
-  border-radius: var(--pill-radius);    
+  border-radius: var(--pill-radius);
 `;
 const square = css`
   border-radius: var(--square-radius);
 `;
 
 // styles
+
+const copied = css`
+  background-color: var(--violet);
+
+  :hover {
+    background-color: var(--violet);
+  }
+`;
 
 const link = css`
   padding: 0;

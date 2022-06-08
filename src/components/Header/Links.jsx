@@ -4,7 +4,7 @@ export const Links = ({links}) => {
   return (
       <List>
         {links?.map((link, i) =>
-            <li key={link + i}><ShortenedLink href={link}>{link}</ShortenedLink></li>
+            <li key={link + i}><Link href={link}>{link}</Link></li>
         )}
       </List>
   );
@@ -22,10 +22,10 @@ const List = styled.ul`
   }
 `;
 
-export const ShortenedLink = styled.a`
+export const Link = styled.a`
   text-decoration: none;
+  font-size: var(--size);
   color: white;
-
   :hover {
     color: black;
   }

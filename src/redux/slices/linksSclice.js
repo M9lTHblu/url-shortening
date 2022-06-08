@@ -13,23 +13,18 @@ const linksSlice = createSlice({
   initialState: {
     loading: 'idle',
     error: null,
-    shortLink: null,
-    shortedLinks: [],
+    items: [],
   },
-  reducers: {
-    addLink: (state, action) => {
-      console.log(state)
-      state.shortedLinks?.push(action.payload)
-      console.log(state.shortedLinks)
-    }
-  },
+  reducers: {},
   extraReducers: {
     [fetchLinks.pending]: (state) => {
       state.loading = 'loading';
     },
     [fetchLinks.fulfilled]: (state, action) => {
-      state.shortLink = action.payload;
-      state.loading = 'idle';
+      if (action.payload.ok) {
+        state.items.unshift(action.payload.result);
+        state.loading = 'idle';
+      }
     },
     [fetchLinks.rejected]: (state, action) => {
       state.error = action.error;

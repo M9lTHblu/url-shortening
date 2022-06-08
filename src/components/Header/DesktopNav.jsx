@@ -7,7 +7,7 @@ export const DesktopNav = () => {
   return (
       <Nav>
         <Links links={data} />
-        <Login />
+        <Login btnSize='sm'/>
       </Nav>
   );
 };

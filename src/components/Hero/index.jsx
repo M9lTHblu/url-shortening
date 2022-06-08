@@ -1,10 +1,9 @@
 import styled from 'styled-components/macro';
 import image from '../../assets/images/illustration-working.svg';
-import {media} from '../../globalStyles';
+import {media} from '../../mediaQueries';
 import {Button} from '../Button/Button';
 import {Description} from './Description';
 import {Title} from './Title';
-
 
 export const Hero = () => {
   return (

@@ -1,24 +1,24 @@
 import styled from 'styled-components/macro';
-import {ShortenedLink as StyledLink} from '../Header/Links';
+import {Link} from '../Header/Links';
 
 export const LinksGroup = ({title, links}) => {
   return (
-      <LinksContainer>
+      <Container>
         <h4>{title}</h4>
         <ul style={{listStyle: 'none', padding: '.7rem 0 2rem'}}>
           {links.map((link, i) => (
               <li key={i} style={{marginBottom: '.2rem'}}>
-                <Link href={'/' + link}>
+                <GroupLink href={'/' + link}>
                   {link}
-                </Link>
+                </GroupLink>
               </li>
           ))}
         </ul>
-      </LinksContainer>
+      </Container>
   );
 };
 
-const LinksContainer = styled.div`
+const Container = styled.div`
   h4 {
     
     color: white;
@@ -30,9 +30,10 @@ const LinksContainer = styled.div`
   }
 `;
 
-const Link = styled(StyledLink)`
+const GroupLink = styled(Link)`
   font-size: 1rem;
   color: var(--gray);
+  white-space: nowrap;
 `;
 
 

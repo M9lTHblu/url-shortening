@@ -1,16 +1,19 @@
 import styled from 'styled-components/macro';
-import {media} from '../../globalStyles';
+import {media} from '../../mediaQueries';
 
 export const Title = styled.h1`
   display: inline;
-  font-size: 2.5rem;
+  font-size: 2rem;
   line-height: 1.2;
   
   ${media.tablet`
-    font-size: 3rem;
+    font-size: 2.5rem;
   `}
-
-  ${media.laptopL`
+  ${media.laptop`
+    font-size: 3.3rem;
+  `}
+  ${media.desktop`
     font-size: 4rem;
   `}
+  
 `;

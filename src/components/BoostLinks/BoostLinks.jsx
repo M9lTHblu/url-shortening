@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
-import bgm from '../../assets/images/bg-boost-mobile.svg';
 import bgd from '../../assets/images/bg-boost-desktop.svg';
+import bgm from '../../assets/images/bg-boost-mobile.svg';
+import {media} from '../../mediaQueries';
 import {Button} from '../Button/Button';
 
 export const BoostLinks = () => {
@@ -26,7 +27,7 @@ const Section = styled.section`
     color: white;
   }
 
-  @media (min-width: 767px) {
+  ${media.tablet`
     padding: 3.5rem 0;
     background-image: url(${bgd});
     background-repeat: no-repeat;
@@ -35,5 +36,5 @@ const Section = styled.section`
     h3 {
       font-size: 2.3rem;
     }
-  }
+  `}
 `;

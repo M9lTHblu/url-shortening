@@ -5,7 +5,7 @@ export const Login = ({btnSize = ''}) => {
   return (
       <Container>
         <Button  $style="link" text="Login" />
-        <Button size={btnSize} text="Sign Up" />
+        <Button text="Sign Up" />
       </Container>
   );
 };
