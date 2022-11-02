@@ -39,7 +39,6 @@ export default function ShortedItem ({ link, active, setActive }) {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.code === 'Backspace') {
-        console.log('!!!!!!!!!!!!')
         dispatch(remove(active))
       }
     }

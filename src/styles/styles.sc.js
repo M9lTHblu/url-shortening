@@ -34,11 +34,6 @@ export const Description = styled.div`
   }
 `
 
-// ShortensList
-export const List = styled.ul`
-  height: 100%;
-`
-
 // Form
 export const StyledForm = styled.form`
   margin-bottom: 70px;
@@ -96,7 +91,10 @@ export const Error = styled.span`
   color: crimson;
 `
 
-// ShortedItem
+// Shortens
+export const List = styled.ul`
+  height: 100%;
+`
 export const StyledShortedItem = styled.article`
   padding: 10px 20px;
   margin-bottom: 20px;
@@ -118,6 +116,7 @@ export const StyledShortedItem = styled.article`
 `
 export const OriginLink = styled.div`
   color: var(--text-muted);
+  overflow-wrap: anywhere;
 
   ::selection {
     background: #000000;
