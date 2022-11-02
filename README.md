@@ -1,4 +1,5 @@
 - React
+- Redux Toolkit
 - Styled Components 
 - React Hook Form
 - Framer Motion
