@@ -40,7 +40,7 @@ export default function ShortedItem ({ link, active, setActive }) {
     const handleKeyDown = (e) => {
       if (e.code === 'Backspace') {
         console.log('!!!!!!!!!!!!')
-        handleRemove(active)
+        dispatch(remove(active))
       }
     }
     window.addEventListener('keydown', handleKeyDown)
@@ -48,7 +48,7 @@ export default function ShortedItem ({ link, active, setActive }) {
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [active])
+  }, [active, dispatch])
 
   return (
     <StyledShortedItem
