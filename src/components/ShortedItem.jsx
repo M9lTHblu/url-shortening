@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { BiCopy } from 'react-icons/bi'
 import { MdDeleteOutline } from 'react-icons/md'
@@ -24,8 +24,6 @@ export default function ShortedItem ({ link, active, setActive }) {
   const handleClick = (code) => {
     setActive(code)
   }
-
-
 
   useEffect(() => {
     const id = setTimeout(() => {

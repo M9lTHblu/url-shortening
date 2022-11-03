@@ -1,6 +1,7 @@
+import { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import {  shorten } from 'store/slices/linksSclice'
+import { shorten } from 'store/slices/linksSclice'
 import {
   Error,
   Input, Label,
@@ -11,6 +12,8 @@ import {
 const regex = /[(http(s)?):(www)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_.~#?&//=]*)/
 
 export default function Form () {
+  const [scrollTop, setScrollTop] = useState(false)
+
   const {
     register,
     handleSubmit,
@@ -21,8 +24,18 @@ export default function Form () {
 
   const onSubmit = (link) => {
     dispatch(shorten(link.url))
+    setScrollTop(true)
     resetField('url')
   }
+
+  useEffect(() => {
+    if (scrollTop) {
+      window.scrollTo({
+        top: 450,
+        behavior: 'smooth',
+      })
+    }
+  }, [scrollTop])
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
@@ -42,7 +55,7 @@ export default function Form () {
         />
         <Error>{errors.url?.message}</Error>
       </Label>
-      <Submit type='submit' >Shorten</Submit>
+      <Submit type='submit'>Shorten</Submit>
     </StyledForm>
   )
 }
