@@ -1,4 +1,3 @@
-import { useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { shorten } from 'store/slices/linksSclice'
@@ -20,17 +19,13 @@ export default function Form () {
   } = useForm()
   const dispatch = useDispatch()
 
-  const formRef = useRef(null)
-
   const onSubmit = (link) => {
     dispatch(shorten(link.url))
-    formRef.current?.scrollIntoView(
-      { block: 'start', inline: 'nearest', behavior: 'smooth' })
     resetField('url')
   }
 
   return (
-    <StyledForm ref={formRef} onSubmit={handleSubmit(onSubmit)}>
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <Label>
         <Input
           type='url'
