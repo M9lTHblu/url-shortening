@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { shorten } from 'store/slices/linksSclice'
@@ -12,8 +12,6 @@ import {
 const regex = /[(http(s)?):(www)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_.~#?&//=]*)/
 
 export default function Form () {
-  const [scrollTop, setScrollTop] = useState(false)
-
   const {
     register,
     handleSubmit,
@@ -22,23 +20,17 @@ export default function Form () {
   } = useForm()
   const dispatch = useDispatch()
 
+  const formRef = useRef(null)
+
   const onSubmit = (link) => {
     dispatch(shorten(link.url))
-    setScrollTop(true)
+    formRef.current?.scrollIntoView(
+      { block: 'start', inline: 'nearest', behavior: 'smooth' })
     resetField('url')
   }
 
-  useEffect(() => {
-    if (scrollTop) {
-      window.scrollTo({
-        top: 450,
-        behavior: 'smooth',
-      })
-    }
-  }, [scrollTop])
-
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+    <StyledForm ref={formRef} onSubmit={handleSubmit(onSubmit)}>
       <Label>
         <Input
           type='url'

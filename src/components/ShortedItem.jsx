@@ -9,7 +9,7 @@ import { Copy, OriginLink, StyledShortedItem, Delete } from 'styles/styles.sc'
 export default function ShortedItem ({ link, active, setActive }) {
   const dispatch = useDispatch()
   const [copy, setCopy] = useState(null)
-
+  const itemRef = useRef()
   const copyToClipboard = (link) => {
     navigator.clipboard.writeText(link)
       .then(() => {
@@ -47,8 +47,11 @@ export default function ShortedItem ({ link, active, setActive }) {
     }
   }, [active, dispatch])
 
+
+
   return (
     <StyledShortedItem
+      ref={itemRef}
       as={motion.article}
       initial={{ x: 400, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}

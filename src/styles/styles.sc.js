@@ -16,6 +16,7 @@ export const Main = styled.main`
   padding: 0 30px;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 
 `
 export const Title = styled.h1`
@@ -25,7 +26,7 @@ export const Title = styled.h1`
   color: white;
 `
 export const Description = styled.div`
-  margin-bottom: 100px;
+  margin-bottom: 90px;
   font-size: 18px;
   color: #999999;
 
@@ -36,6 +37,7 @@ export const Description = styled.div`
 
 // Form
 export const StyledForm = styled.form`
+  padding-top: 10px;
   margin-bottom: 70px;
   display: grid;
   grid-template-columns: 3fr 1fr;
