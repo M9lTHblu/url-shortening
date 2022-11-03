@@ -1,14 +1,9 @@
-import { Provider } from 'react-redux'
-import { persistor, store } from 'store'
-import { PersistGate } from 'redux-persist/integration/react'
-import {
-  AppContainer,
-  Description,
-  Main,
-  Title,
-} from 'styles/styles.sc'
 import Form from 'components/Form'
 import ShortensList from 'components/ShortensList'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistor, store } from 'store'
+import { AppContainer, Description, Main, Title } from 'styles/styles.sc'
 
 export default function App () {
 

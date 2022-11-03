@@ -16,8 +16,6 @@ export const Main = styled.main`
   padding: 0 30px;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-
 `
 export const Title = styled.h1`
   margin: 120px 0 40px;
@@ -37,12 +35,15 @@ export const Description = styled.div`
 
 // Form
 export const StyledForm = styled.form`
+  position: sticky;
+  top: 0;
   padding-top: 10px;
   margin-bottom: 50px;
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-areas: 'input submit';
   column-gap: 20px;
+  background-color: black;
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
     grid-template-areas: 'input'
@@ -95,7 +96,7 @@ export const Error = styled.span`
 
 // Shortens
 export const List = styled.ul`
-  height: 100%;
+  //height: 100%;
 `
 export const StyledShortedItem = styled.article`
   padding: 10px 20px;

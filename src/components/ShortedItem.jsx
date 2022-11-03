@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
 import { BiCopy } from 'react-icons/bi'
 import { MdDeleteOutline } from 'react-icons/md'
+import { useDispatch } from 'react-redux'
 import { remove } from 'store/slices/linksSclice'
-import { Copy, OriginLink, StyledShortedItem, Delete } from 'styles/styles.sc'
+import { Copy, Delete, OriginLink, StyledShortedItem } from 'styles/styles.sc'
 
-export default function ShortedItem ({ link, active, setActive }) {
+export default function ShortedItem ({ index, link, active, setActive }) {
   const dispatch = useDispatch()
   const [copy, setCopy] = useState(null)
-  const itemRef = useRef()
+
   const copyToClipboard = (link) => {
     navigator.clipboard.writeText(link)
       .then(() => {
@@ -47,15 +47,26 @@ export default function ShortedItem ({ link, active, setActive }) {
     }
   }, [active, dispatch])
 
-
+  const variants = {
+    visible: index => ({
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: index * 0.3,
+      },
+    }),
+    hidden: { x: 400, opacity: 0 },
+    remove: { x: -300, opacity: 0 },
+  }
 
   return (
     <StyledShortedItem
-      ref={itemRef}
       as={motion.article}
-      initial={{ x: 400, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -300, opacity: 0 }}
+      variants={variants}
+      custom={index}
+      initial='hidden'
+      animate='visible'
+      exit='remove'
       $active={active === link.code}
       onClick={() => handleClick(link.code)}
     >
