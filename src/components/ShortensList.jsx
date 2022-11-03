@@ -1,12 +1,12 @@
 import { AnimatePresence } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { getState } from 'store/slices/linksSclice'
+import { getLinks } from 'store/slices/linksSclice'
 import ShortedItem from 'components/ShortedItem'
 import { List } from 'styles/styles.sc'
 
 export default function ShortensList () {
-  const { items } = useSelector(getState)
+  const { items } = useSelector(getLinks)
   const [active, setActive] = useState('')
   const listRef = useRef(null)
 

@@ -13,6 +13,7 @@ const linksSlice = createSlice({
   initialState: {
     error: null,
     items: [],
+    ids:[],
     loading: 'idle',
   },
   reducers: {
@@ -27,8 +28,11 @@ const linksSlice = createSlice({
     [shorten.fulfilled]: (state, action) => {
       if (action.payload.ok) {
         const { short_link2, original_link, code } = action.payload.result
-        state.items.unshift({ short_link2, original_link, code })
-        state.loading = 'idle'
+        if (!state.ids.includes(code)) {
+          state.items.unshift({ short_link2, original_link, code })
+          state.ids.push(code)
+          state.loading = 'idle'
+        }
       }
     },
     [shorten.rejected]: (state, action) => {
@@ -40,5 +44,5 @@ const linksSlice = createSlice({
 
 export default linksSlice.reducer
 
-export const getState = (state) => state.links
+export const getLinks = (state) => state.links
 export const { remove } = linksSlice.actions

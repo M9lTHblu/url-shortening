@@ -38,7 +38,7 @@ export const Description = styled.div`
 // Form
 export const StyledForm = styled.form`
   padding-top: 10px;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-areas: 'input submit';
