@@ -1,6 +1,6 @@
 import ShortedItem from 'components/ShortedItem'
 import { AnimatePresence } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { getLinks } from 'store/slices/linksSclice'
 import { List } from 'styles/styles.sc'
@@ -11,7 +11,6 @@ export default function ShortensList () {
 
 
   return (
-
         <List>
           <AnimatePresence>
             {

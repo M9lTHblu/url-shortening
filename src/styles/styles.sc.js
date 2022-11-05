@@ -11,25 +11,34 @@ export const AppContainer = styled.div`
   flex-direction: column;
 `
 export const Main = styled.main`
-  height: 100%;
   margin: 0 auto;
   padding: 0 30px;
-  display: flex;
-  flex-direction: column;
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    * {
+      flex:1 0;
+    }
+  }
 `
 export const Title = styled.h1`
-  margin: 120px 0 40px;
+  padding: 120px 0 40px;
   font-size: 38px;
   line-height: 34px;
   color: white;
+  @media (max-width: 767px) {
+    padding: 40px 0 20px;
+  }
 `
 export const Description = styled.div`
-  margin-bottom: 90px;
+  padding-bottom: 90px;
   font-size: 18px;
   color: #999999;
-
   p {
     margin-bottom: 13px;
+  }
+  @media (max-width: 767px) {
+    padding-bottom: 20px;
   }
 `
 
@@ -37,13 +46,14 @@ export const Description = styled.div`
 export const StyledForm = styled.form`
   position: sticky;
   top: 0;
+  z-index: 100;
   padding-top: 10px;
-  margin-bottom: 50px;
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-areas: 'input submit';
   column-gap: 20px;
   background-color: black;
+  
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
     grid-template-areas: 'input'
@@ -73,6 +83,7 @@ export const Input = styled.input`
   `}
 `
 export const Submit = styled.button`
+  height: 50px;
   grid-area: submit;
   padding: 14px 0;
   border-radius: 5px;
@@ -96,9 +107,16 @@ export const Error = styled.span`
 
 // Shortens
 export const List = styled.ul`
-  //height: 100%;
+  padding: 50px 0 0;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+  @media (max-width: 767px) {
+    padding: 30px 0 0;
+  }
 `
 export const StyledShortedItem = styled.article`
+  flex: 1 0;
   padding: 10px 20px;
   margin-bottom: 20px;
   border-radius: 5px;
@@ -133,10 +151,10 @@ export const Copy = styled(Submit)`
   align-items: center;
   gap: 16px;
 `
+
 export const Delete = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 `
-

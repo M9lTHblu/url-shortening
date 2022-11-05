@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { shorten } from 'store/slices/linksSclice'
@@ -12,7 +11,6 @@ import {
 const regex = /[(http(s)?):(www)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_.~#?&//=]*)/
 
 export default function Form () {
-  const formRef = useRef()
   const {
     register,
     handleSubmit,
@@ -23,21 +21,11 @@ export default function Form () {
 
   const onSubmit = (link) => {
     dispatch(shorten(link.url))
-    formRef.current?.scrollIntoView(
-      { block: 'start', behavior: 'smooth'})
     resetField('url')
   }
 
-  useEffect(() => {
-    if (formRef.current) {
-      formRef.current?.scrollIntoView(
-        { block: 'end' , behavior: 'smooth'})
-    }
-
-  },[])
-
   return (
-    <StyledForm ref={formRef} onSubmit={handleSubmit(onSubmit)}>
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <Label>
         <Input
           type='url'
@@ -58,9 +46,3 @@ export default function Form () {
     </StyledForm>
   )
 }
-
-
-
-
-
-

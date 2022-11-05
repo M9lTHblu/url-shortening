@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { uniqBy } from 'lodash'
 
 export const shorten = createAsyncThunk(
   'links/shorten',
@@ -13,12 +14,11 @@ const linksSlice = createSlice({
   initialState: {
     error: null,
     items: [],
-    ids:[],
     loading: 'idle',
   },
   reducers: {
-    remove: (state, {payload}) => {
-      state.items = state.items.filter(({code}) => code !== payload)
+    remove: (state, { payload }) => {
+      state.items = state.items.filter(({ code }) => code !== payload)
     },
   },
   extraReducers: {
@@ -28,11 +28,10 @@ const linksSlice = createSlice({
     [shorten.fulfilled]: (state, action) => {
       if (action.payload.ok) {
         const { short_link2, original_link, code } = action.payload.result
-        if (!state.ids.includes(code)) {
-          state.items.unshift({ short_link2, original_link, code })
-          state.ids.push(code)
-          state.loading = 'idle'
-        }
+        const items = [{ short_link2, original_link, code }, ...state.items]
+        console.log(items)
+        state.items = uniqBy(items, 'code')
+        state.loading = 'idle'
       }
     },
     [shorten.rejected]: (state, action) => {
