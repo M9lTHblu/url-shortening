@@ -5,8 +5,14 @@ html, body, #root {
 }
 
 :root {
+  --dark: #000000;
+  --light: #FFFFFF;
   --primary: #6979F8;
   --blue-200: #0084F4;
   --blue-100: #4EAEFF;
+  --text-gray:#999999;
   --text-muted: #353434;
+  --gray-dark: #28262666;
+  --border-color: #E4E4E499;
+  --danger: crimson;
 }

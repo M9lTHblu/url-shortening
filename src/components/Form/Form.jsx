@@ -1,14 +1,12 @@
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { shorten } from 'store/slices/linksSclice'
-import {
-  Error,
-  Input, Label,
-  StyledForm,
-  Submit,
-} from '../styles/styles.sc'
-
-const regex = /[(http(s)?):(www)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_.~#?&//=]*)/
+import FormContainer from './FormContainer'
+import Label from './Label'
+import Input from './Input'
+import InputError from './InputError'
+import Submit from './Submit'
+import regexPattern from './regexPattern'
 
 export default function Form () {
   const {
@@ -17,15 +15,16 @@ export default function Form () {
     resetField,
     formState: { errors },
   } = useForm()
+
   const dispatch = useDispatch()
 
-  const onSubmit = (link) => {
-    dispatch(shorten(link.url))
+  const onSubmit = ({ url }) => {
+    dispatch(shorten(url))
     resetField('url')
   }
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+    <FormContainer onSubmit={handleSubmit(onSubmit)}>
       <Label>
         <Input
           type='url'
@@ -35,14 +34,14 @@ export default function Form () {
             {
               required: true,
               pattern: {
-                value: regex,
+                value: regexPattern,
                 message: 'Please enter a valid url',
               },
             })}
         />
-        <Error>{errors.url?.message}</Error>
+        <InputError>{errors.url?.message}</InputError>
       </Label>
-      <Submit type='submit'>Shorten</Submit>
-    </StyledForm>
+      <Submit text='Shorten' />
+    </FormContainer>
   )
 }

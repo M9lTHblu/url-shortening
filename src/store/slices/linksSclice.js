@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { uniqBy } from 'lodash'
+import shortenApi from 'api/shortenApi'
+import reportError from '../../utils/reportError'
 
 export const shorten = createAsyncThunk(
   'links/shorten',
   async (url) => {
-    const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`)
-    return await response.json()
+    return await shortenApi(url)
   },
 )
 
@@ -18,7 +19,7 @@ const linksSlice = createSlice({
   },
   reducers: {
     remove: (state, { payload }) => {
-      state.items = state.items.filter(({ code }) => code !== payload)
+      state.items = state.items.filter(({ id }) => id !== payload)
     },
   },
   extraReducers: {
@@ -26,22 +27,23 @@ const linksSlice = createSlice({
       state.loading = 'loading'
     },
     [shorten.fulfilled]: (state, action) => {
-      if (action.payload.ok) {
-        const { short_link2, original_link, code } = action.payload.result
-        const items = [{ short_link2, original_link, code }, ...state.items]
-        console.log(items)
-        state.items = uniqBy(items, 'code')
-        state.loading = 'idle'
-      }
+      const { payload: { result } } = action
+      const short = result?.short_link2 || result?.short_link
+      const longLink = result?.original_link
+      const id = result?.code
+      const items = [{ short, longLink, id }, ...state.items]
+      state.items = uniqBy(items, 'id')
+      state.loading = 'success'
+      state.error = null
     },
     [shorten.rejected]: (state, action) => {
       state.error = action.error
       state.loading = 'failed'
+      reportError(action.error)
     },
   },
 })
 
 export default linksSlice.reducer
 
-export const getLinks = (state) => state.links
 export const { remove } = linksSlice.actions
