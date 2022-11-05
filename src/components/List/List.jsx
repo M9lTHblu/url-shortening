@@ -7,8 +7,6 @@ import ListContainer from './ListContainer'
 export default function List () {
   const { items } = useSelector(state => state.links)
   const [active, setActive] = useState('')
-  console.count('render list')
-
 
   return (
     <ListContainer>

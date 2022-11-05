@@ -9,7 +9,7 @@ const Shorted = ({ index, link, active, setActive }) => {
   const handleClick = (id) => () => {
     setActive(id)
   }
-  console.count('render item')
+
   return (
     <ShortedContainer
       index={index}

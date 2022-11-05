@@ -28,9 +28,9 @@ const linksSlice = createSlice({
     },
     [shorten.fulfilled]: (state, action) => {
       const { payload: { result } } = action
-      const short = result?.short_link2 || result?.short_link
-      const longLink = result?.original_link
-      const id = result?.code
+      const short = result.short_link2
+      const longLink = result.original_link
+      const id = result.code
       const items = [{ short, longLink, id }, ...state.items]
       state.items = uniqBy(items, 'id')
       state.loading = 'success'
