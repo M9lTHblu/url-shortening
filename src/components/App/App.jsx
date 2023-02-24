@@ -8,7 +8,6 @@ import AppContainer from './AppContainer'
 import Main from './Main'
 
 export default function App () {
-  console.count('render app')
 
   return (
     <Provider store={store}>
